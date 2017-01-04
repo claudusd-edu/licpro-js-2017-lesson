@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Licence Pro Web 2015/2016</title>
+        <meta name="author" content="Claude Dioudonnat" />
+        <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+        <link rel="stylesheet" href="reveal.js/css/theme/league.css">
+        <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Javascript</h1>
+                    <ul>
+                        <li>
+                            <a href="#/lesson1">Lesson 1 : ECMAScript 2015</a>
+                        </li>
+                        <li>
+                            <a href="#/lesson2">Lesson 2 : NodeJS</a>
+                        </li>
+                        <li>
+                            <a href="#/lesson3">Lesson 3 : CSS</a>
+                        </li>
+                        <li>
+                            <a href="#/lesson4">Lesson 4 : ReactJS</a>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <section>
+                        <h1>Who Is Speaking?</h1>
+                    </section>
+                    <section>
+                        <h2>Claude Dioudonnat</h2>
+                        <p>Graduated from IUT (DUT + Lic Pro Mobile)</p>
+                        <p>Work at ITNetwork</p>
+                        <p>
+                            Worked at:
+                        </p>
+                        <ul>
+                            <li>Modis</li>
+                            <li>Université Blaise Pascal</li>
+                            <li>In My City</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>claude@dioudonnat.fr</h2>
+                    </section>
+                </section>
+                <section>
+                    <h2>Rules</h2>
+                    <section>
+                        #1 RTFM
+                    </section>
+                    <section>
+                        #2 Use your Brain
+                    </section>
+                    <section>
+                        #3 Ask Questions
+                    </section>
+                </section>
+                <section id="lesson1">
+                    <h2>ECMASscript 2015</h2>
+                </section>
+                <section>
+                    <section>
+                        <h3>History</h3>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>LiveScript May 1995</li>
+                            <li>Brendan Eich</li>
+                            <li>Server</li>
+                        </ul>        
+                    </section>
+                    <section>
+                        <ul>
+                            <li>LiveScript -> Javascript</li>
+                            <li>March 1996 Netscape Navigator 2.0</li>
+                            <li>JScript By Microsoft</li>
+                            <li>August 1996 Internet Explorer 3.0</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>ECMA-262</h4>
+                        <table>
+                            <tr>
+                                <td>June 1997</td>
+                                <td>ES1</td>
+                            </tr>
+                            <tr>
+                                <td>June 1998</td>
+                                <td>ES2</td>
+                            </tr>
+                            <tr>
+                                <td>December 1999</td>
+                                <td>ES3</td>
+                            </tr>
+                            <tr>
+                                <td>\</td>
+                                <td>ES4</td>
+                            </tr>
+                            <tr>
+                                <td>December 2009</td>
+                                <td>ES5</td>
+                            </tr>
+                            <tr>
+                                <td>June 2015</td>
+                                <td>ES6</td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <div>
+                            <img src="gif/you-can-use.jpeg" >
+                        </div>
+                        <a class="fragment" href="http://kangax.github.io/compat-table/es6/">*Under Conditions...</a>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Data Type</h3>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">var foo;
+typeof foo;</code></pre>
+                    </section>
+                    <section>
+                        <table>
+                            <tr>
+                                <th>Type</th>
+                                <th>Result</th>
+                            </tr>
+                            <tr>
+                                <td>Undefined</td>
+                                <td>"undefined"</td>
+                            </tr>
+                            <tr>
+                                <td>Null / Object</td>
+                                <td>"object"</td>
+                            </tr>
+                            <tr>
+                                <td>Boolean</td>
+                                <td>"boolean"</td>
+                            </tr>
+                            <tr>
+                                <td>Number</td>
+                                <td>"number"</td>
+                            </tr>
+                            <tr>
+                                <td>String</td>
+                                <td>"string"</td>
+                            <tr>
+                            <tr>
+                                <td>Function object</td>
+                                <td>"function"</td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">123     // integer
+
+12.345  // fractional
+
+12.3e4  // 'scientific' notation: 12.3 * 10^4</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">12/0;  // Infinity
+
+-12/0; // -Infinity</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Context<h3>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">var foo = "outside";
+function test() {
+    foo = "inside";
+    console.log('test foo is "%s"', foo);
+}
+
+test();</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">var foo = "outside";
+function test() {
+    var foo = "inside";
+    console.log('test foo is "%s"', foo);
+}
+
+test();</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Syntax</h3>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">if (typeof a === "undefined") {
+    // a is undefined
+} else if (a instanceof Number) {
+    // a is a Number
+} else {
+    throw new Error('Hey, you missed the contract !')
+}</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">switch(action) {
+    case 'draw':
+        drawit();
+        break;
+    case 'eat':
+        eatit();
+        break;
+    default:
+        donothing();
+}</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">var obj = {
+    foo: null
+};
+
+"foo" in obj;</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">try {
+  foo.bar();
+} catch (e) {
+  if (e instanceof EvalError) {
+    ...
+  }
+} finally {
+    foo.baz();
+}</code></pre>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>Error</li>
+                            <li>EvalError</li>
+                            <li>RangeError</li>
+                            <li>ReferenceError</li>
+                            <li>SyntaxError</li>
+                            <li>TypeError</li>
+                            <li>URIError</li>
+                        <ul>                     
+                    </section>
+                    <section>
+                        <pre><code class="javascript">while (!is_empty(pancakes)) {
+    ...
+}</code></pre>
+                        <pre><code class="javascript">do {
+    ...
+} while (i < 5);</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">for (var i = 0; i < 9; i++) {
+    ...
+}</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">for (var prop in obj) {
+    ...
+}</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Object</h3>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">class Animal { 
+  constructor(name) {
+    this.name = name;
+  }
+  
+  speak() {
+    console.log(this.name + ' makes a noise.');
+  }
+}</code></pre>                        
+                    </section>
+                    <section>
+                        <pre><code class="javascript">class Dog extends Animal {
+  speak() {
+    console.log(this.name + ' barks.');
+  }
+}</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">function Animal(name) {
+    this.name = name;
+}
+
+Animal.prototype.speak = function() {
+    console.log(this.name + ' makes a noise.');
+}</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">Dog.prototype = new Animal();
+
+Dog.Dog.prototype.speak = function() {
+    console.log(this.name + ' barks.');
+}</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">var mini = new Dog('mini');
+</code></pre>
+                    </section>
+                    <section>
+                        <h4>JSON</h4>
+                        <pre><code class="javascript"> var obj = {}</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Promise</h3>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">new Promise(function(resolve, reject) {
+
+    console.log(resolve);
+
+    if(false) {
+        resolve('Success!');
+    }
+    else {
+        reject('Failure!');
+    }
+});</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">
+function readFile(path) {
+    return new Promise(....);
+}
+const p = readFile('my-file');
+</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">p.then(function(s) {
+    console.log(s);
+    return s.other;
+}).then(function(other) { 
+...
+}).catch(function(e) {
+    console.log(e);
+})</code></pre>    
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Ajax - Fetch</h3>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">var request = new Request('http://localhost:9312/all', {
+    headers: new Headers({
+        'Accept': 'application/json'
+    })
+});</code></pre>          
+                    </section>
+                    <section>
+                        <pre><code class="javascript">fetch(request, {
+    mode: 'no-cors',
+    method: 'GET'
+}).then(function(response) {
+    return response.json();
+}).then(function(j) {
+    console.log(j)
+}).catch(function(err) {
+   console.log(err);
+});</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Module</h3>
+                    </section>
+                    <section>
+                         <pre><code class="javascript">//include.js
+export default function () { .... };</code></pre>
+                        <pre><code class="javascript">//main.js
+import a from "./include";</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">//include.js
+export a function () { .... }
+export b function () { .... }</code></pre>
+<pre><code class="javascript">//main.js
+import { a as z, b } from "./include";</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>BabelJS</h3>
+                        <img src="gif/babel_meme.jpg" >
+                    </section>
+                    <section>
+                        <h4>Transpiler</h4>                       
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Webpack</h3>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h4>NPM/Yarn</h4>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>package manager</li>
+                            <li>https://www.npmjs.com/</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <pre><code class="json">{
+  "name": "Pratice1",
+  "description": "Pratice 1",
+  "dependencies": {
+    "exports-loader": "^0.6.2",
+    "uglify-loader": "^1.3.0",
+  }
+}
+</pre></code>
+                    </section>
+                    <section>
+                        <pre><code class="bash">$ npm install
+$ npm install webpack
+$ npm install -g webpack
+</pre></code>
+                    </section>
+                    <section>
+                        <a href="https://docs.npmjs.com/">More ....</a>
+                    </section>
+                </section>
+                <section id="lesson2">
+                    <h2>NodeJS</h2>
+                </section>
+                <section>
+                    <section>
+                        <h3>History</h3>
+                    </section>
+                    <section>
+                        <h4>May 2009</h4>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Introduction</h3>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>Asynchronous I/O Framework</li>
+                            <li>V8 engine</li>
+                            <li>Write in C++</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Module</h3>
+                    </section>
+                    <section>
+                        <strong>dal.js</strong>
+                        <pre><code class="javascript">class DAL {
+    ...
+}
+module.exports = DAL
+</code></pre>
+                    </section>
+                    <section>
+                        <strong>function.js</strong>
+                        <pre><code class="javascript">function a() { ... }
+function b() { ... }
+exports.a = a
+exports.b = b
+</code></pre>
+                    </section>
+                    <section>
+                        <strong>index.js</strong>
+                        <pre><code class="javascript">var DAL = require('./dal')
+var utils = require('./function')
+var url = require('url')
+var dal_1 = new DAL();
+utils.a()
+utils.b()
+url.parse(....)
+</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>require('http')</h3>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">var http = require("http");
+http.createServer(function(request, response) {
+    response.write('Coucou');
+    response.end();
+}).listen(9999);
+</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Request</h3>
+                    </section>
+                    <section>
+                        <pre><code class="http">GET /thing?id=1 HTTP/1.1</code></pre>
+                        <pre><code class="javascript">console.log(request.method)</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="http">GET /thing?id=1 HTTP/1.1</code></pre>
+                        <pre><code class="javascript">var url = require('url');
+var pathname = url.parse(request.url).pathname;
+console.log(pathname)
+</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="http">GET /thing?id=1 HTTP/1.1</code></pre>
+                        <pre><code class="javascript">var url = require('url');
+var parsedUrl = url.parse(request.url, true);
+var queryAsObject = parsedUrl.query;
+console.log(queryAsObject.id)
+</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="http">GET /thing?id=1 HTTP/1.1
+
+{"status": "ok", "extended": true}
+</code></pre>
+                        <pre><code class="javascript">var body =  '';
+request.on('data', function (data) {
+    body += data;
+});
+request.on('end', function () {
+   console.log(body);
+})
+</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Response</h3>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">response.writeHead(201, {"Content-Type": "application/json"});
+response.write('&lt;html>&lt;body>Hello World&lt;/body>&lt;/html>');
+</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">response.end()</code></pre>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>1xx</li>
+                            <li class="fragment">2xx</li>
+                            <li class="fragment">3xx</li>
+                            <li class="fragment">4xx</li>
+                            <li class="fragment">5xx</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Callback</h3>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">some_function('john', 'doe', function() {
+return 9;
+});
+</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">class Tools {
+    do() { return 9}
+}
+var tool = new Tools();
+some_function('john', 'doe', tool.do);
+</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">class Tools {
+    constructor(number) { this.number = number}
+    do() { return this.number }
+}
+var tool = new Tools(9);
+some_function('john', 'doe', tool.do);
+</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Closure</h3>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">function créerFonction() {
+  var nom = "Mozilla";
+  function afficheNom() {
+    alert(nom);
+  }
+  return afficheNom;
+};
+</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">var maFonction = créerFonction();
+maFonction();
+</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">var name = 'John'
+ma_fonction('foo', function() {
+    console.log(name);
+})
+</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">class Tools {
+    constructor(number) { this.number = number}
+    do() { return this.number }
+}
+var tool = new Tools(9);
+some_function('john', 'doe', function() { tool.do() });
+</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>require('child_proces')</h3>
+                    </section>
+                    <section>
+                        <pre><code class="bash">#!/usr/bin/env bash
+for count in `seq 1 100`; do
+    echo $count
+    sleep 0.1
+done
+</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">var spawn = require('child_proces').spawn()
+var job = spawn('./script.sh');
+job.stdout.on('data', function(tick) {
+
+});
+job.on('exit', function() {
+    console.log('exit script.sh'); 
+});
+</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Bonus</h3>
+                    </section>
+                    <section>
+                        <pre><code class="javascript">JSON.stringify(obj)
+JSON.parse('{title: "foo", chapter: "bar"}')
+</code></pre>
+                    </section>
+                    <section>
+                        <h4>Controlleur<h4>
+                    </section>
+                    <section>
+                        <h4>Routeur<h4>
+                    </section>
+                </section>
+                
+                <section id="lesson3">
+                    <section>
+                        <h2>CSS</h2>
+                        <img src="gif/css3.png">
+                    </section>
+                    <section>
+                        <img src="gif/css_is_awesome.jpeg">
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>History</h3>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>CSS 1 December 1996</li>
+                            <li class="fragment">CSS 2  May 1998</li>
+                            <li class="fragment">CSS 2.1  June 2011</li>
+                            <li class="fragment">CSS 3 Release since 2001</li>
+                            <li class="fragment">CSS 4 draft</li>
+                        <ul>
+                    </section>
+                    <section>
+                        <img src="gif/html_plus_css.jpg">
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Syntax</h3>
+                    </section>
+                    <section>
+                        <pre><code class="css">selector {
+    porperty: value;
+}
+</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="css">p.foo {
+    color: #f00;
+}
+
+p {
+    color: #ccc;
+}
+</code></pre>
+                    </section>
+                    <section>
+                        <pre><code class="css">p {
+    color: #ccc;
+    color: rgba(255, 125, 125, .3);
+    color: blabla;
+}
+</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Box Model</h3>
+                    </section>
+                    <section>
+                        <img src="gif/box_model.gif">
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Size Unit</h3>
+                    </section>
+                    <section>
+                        <h4>em<h4>
+                        font
+                    </section>
+                    <section>
+                        <h4>px</h4>
+                        resolution
+                    </section>
+                    <section>
+                        <h4>%</h4>
+                        parent
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Display</h3>
+                    </section>
+                    <section>
+                        <h4>block</h4>
+                    </section>
+                    <section>
+                        <h4>inline-block</h4>
+                    </section>
+                    <section>
+                        <h4>inline</h4>
+                    </section>
+                    <section>
+                        <h4>+</h4>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Position</h3>
+                    </section>
+                    <section>
+                        <h4>Static</h4>
+                    </section>
+                    <section>
+                        <h4>Relative</h4>
+                    </section>
+                    <section>
+                        <h4>absolute</h4>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h4>Media Queries</h4>
+                    </section>
+                   <section>
+                        <img src="gif/old_monitor.png">
+                    </section>
+                    <section>
+                        <img src="gif/monitor_size.gif">
+                    </section>
+                    <section>
+                        <pre><code class="css">p {
+    font-size: 30px;
+}
+
+</code></pre>
+                        <pre class="fragment"><code class="css">@media screen and (max-width: 980px) {
+    p {
+        font-size: 20px;
+    }
+}
+</code></pre>
+                        <pre class="fragment"><code class="css">@media screen and (max-width: 650px)
+    p {
+        font-size: 10px;
+    }
+}
+</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Responsive Design</h3>
+                    </section>
+                    <section>
+                        <img src="gif/responsive_box.jpeg" >
+                    </section>
+                </section>
+                <section id="lesson4">
+                    <h2>ReactJS</h2>
+                    <img src="gif/reactjs.png">
+                </section>
+                <section>
+                    <section>
+                        <h3>Introduction</h3>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>Open Source (MIT)</li>
+                            <li class="fragment">Facebook</li>
+                            <li class="fragment">library view oriented</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Component</h3>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>No Controllers</li>
+                            <li class="fragment">No Templates</li>
+                            <li class="fragment">No Global Event Listeners</li>
+                            <li class="fragment">No Models</li>
+                            <li class="fragment">No View Models</li>
+                        </ul>                   
+                    </section>
+                    <section>
+                        <h4>Just Components</h4>
+                    </section>
+                    <section>
+                        <img src="gif/component.png" />
+                    </section>
+                    <section>
+                        <h4>EpisodeComponent</h4>
+                        <img src="gif/component1.png" />
+                    </section>
+                    <section>
+                        <h4>EpisodeListComponent</h4>
+                        <img src="gif/component2.png" />
+                    </section>
+                    <section>
+                        <h4>EpisodeItemComponent</h4>
+                        <img src="gif/component3-1.png" />
+                    </section>
+                    <section>
+                        <h4>EpisodeItemComponent</h4>
+                        <img src="gif/component3-2.png" />
+                    </section>
+                    <section>
+                        <h4>EpisodeFormComponent</h4>
+                        <img src="gif/component4.png" />
+                    </section>
+                    <section>
+                        <h4>ButtonComponent</h4>
+                        <img src="gif/component5.png" />
+                    </section>
+                    <section>
+                        <ul>
+                            <li>Composable</li>
+                            <li class="fragment">Reusable</li>
+                            <li class="fragment">Maintainable</li>
+                            <li class="fragment">Testable</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>
+                            It's a idempotent function who describe your UI at a specific time and in a very precisely state
+                        </h4>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Virtual DOM</h3>
+                    </section>
+                    <section>
+                        <h4>Touching the DOM is Evil</h4>
+                        <ul>
+                            <li>It's Hard to test</li>
+                            <li class="fragment">It's expensive</li>
+                            <li class="fragment">It's Inconsistent</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4>JSX</h4>
+                        <pre><code class="jsx">var ButtonComponent = React.createClass({
+    getInitialState: function() {
+        return {watched: false};
+    },
+    handleClick: function(event) {
+      this.setState({watched: !this.state.watched});  
+    },
+    render: function() {
+        var text = this.state.watched ? 'Watched' : 'Unwatched';
+        return (
+            <button onclick={this.handleClick}>
+                {text}
+            </button>
+        );
+    }
+});
+</code></pre>
+                    </section>
+                    <section>
+                        <h4>JSX = Javascript XML</h4>
+                    </section>
+                    <section>
+                        <h4>JSX</h4>
+                        <pre><code class="jsx">render: function() {
+    var text = this.state.watched ? 'Watched' : 'Unwatched';
+    return (
+        <button onclick={this.handleClick}>
+            {text}
+        </button>
+    );
+}
+</code></pre>
+                        <h4>JSX Compiled</h4>
+                        <pre><code class="javascript">render: function() {
+    var text = this.state.watched ? 'Watched' : 'Unwatched';
+    return (
+        React.DOM.button({onclick:this.handleClick},
+            text
+        )
+    )
+}
+</code></pre>
+                    </section>
+                    <section>
+                        <h4>onclick is a DOM Event</h4>
+                    </section>
+                    <section>
+                        <pre><code class="jsx">return(
+    <div>
+        &lt;ButtonComponent key="watched" />
+    </div>
+)
+</code></pre>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>In-memory representation of the DOM</li>
+                            <li class="fragment">render is call at every change</li>
+                            <li class="fragment">React update the reald DOM</li>
+                            <li class="fragment">It's Fast</li>
+                        <ul>
+                    </section>
+                    <section>
+                        <pre><code class="jsx">componentDidMount: function() {
+    var el = this.getDOMNode();
+    this.setState({ ...});
+}
+</code></pre>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>JSX is a DSL</li>
+                            <li class="fragment">Must be compiled (babel)</li>
+                            <li class="fragment">Very usefull ...</li>
+                            <li class="fragment">... but Optional</li>
+                        </ul>                           
+                    </section>
+                    <section>
+                        <h4>Each data update</h4>
+                        <ul>
+                            <li>Build a virtual tree</li>
+                            <li class="fragment">Make a diff with the previous tree</li>
+                            <li class="fragment">Store atomic operations in a queue</li>
+                            <li class="fragment">Execute this operations</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Lifecycle and API</h3>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>componentWillMount</li>
+                            <li class="fragment">componentDidMount</li>
+                            <li class="fragment">componentWillUnmount</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <ul>
+                            <li>render()</li>
+                            <li>getInitializeState() : {}</li>
+                            <li>setState({}) : trigger render</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Props and State</h3>
+                    </section>
+                    <section>
+                        <pre><code class="jsx">return(
+    <div>
+        &lt;ButtonComponent key="watched" />
+    </div>
+)
+</code></pre>
+                        <pre><code class="jsx">var ButtonComponent = React.createClass({
+    ...
+        this.props.key
+    ...
+})
+</code></pre>
+                    </section>
+                    <section>
+                        <h4>Props are immutable</h4>
+                        <pre><code class="jsx">
+    this.props.key = 'tutu' // Forbiden
+</code></pre>
+                    </section>
+                    <section>
+                        <h4>State is mutable</h4>
+                        <pre><code class="jsx">this.setState({ active: true});
+...
+this.state.active 
+</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <h3>"Mount" in real DOM</h3>
+                    <pre><code class="javascript">React.renderComponent(EpisodeComponent(),
+    document.querySelector("body"));
+                </section>
+            </div>
+        </div>
+        <script src="reveal.js/lib/js/head.min.js"></script>
+        <script src="reveal.js/js/reveal.min.js"></script>
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
