@@ -73,7 +73,7 @@
                             <li>LiveScript May 1995</li>
                             <li>Brendan Eich</li>
                             <li>Server</li>
-                        </ul>        
+                        </ul>
                     </section>
                     <section>
                         <ul>
@@ -247,7 +247,7 @@ test();</code></pre>
                             <li>SyntaxError</li>
                             <li>TypeError</li>
                             <li>URIError</li>
-                        <ul>                     
+                        <ul>
                     </section>
                     <section>
                         <pre><code class="javascript">while (!is_empty(pancakes)) {
@@ -273,15 +273,15 @@ test();</code></pre>
                         <h3>Object</h3>
                     </section>
                     <section>
-                        <pre><code class="javascript">class Animal { 
+                        <pre><code class="javascript">class Animal {
   constructor(name) {
     this.name = name;
   }
-  
+
   speak() {
     console.log(this.name + ' makes a noise.');
   }
-}</code></pre>                        
+}</code></pre>
                     </section>
                     <section>
                         <pre><code class="javascript">class Dog extends Animal {
@@ -344,11 +344,11 @@ const p = readFile('my-file');
                         <pre><code class="javascript">p.then(function(s) {
     console.log(s);
     return s.other;
-}).then(function(other) { 
+}).then(function(other) {
 ...
 }).catch(function(e) {
     console.log(e);
-})</code></pre>    
+})</code></pre>
                     </section>
                 </section>
                 <section>
@@ -360,7 +360,7 @@ const p = readFile('my-file');
     headers: new Headers({
         'Accept': 'application/json'
     })
-});</code></pre>          
+});</code></pre>
                     </section>
                     <section>
                         <pre><code class="javascript">fetch(request, {
@@ -399,7 +399,7 @@ import { a as z, b } from "./include";</code></pre>
                         <img src="gif/babel_meme.jpg" >
                     </section>
                     <section>
-                        <h4>Transpiler</h4>                       
+                        <h4>Transpiler</h4>
                     </section>
                 </section>
                 <section>
@@ -649,9 +649,23 @@ job.stdout.on('data', function(tick) {
 
 });
 job.on('exit', function() {
-    console.log('exit script.sh'); 
+    console.log('exit script.sh');
 });
 </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h4>Controlleur<h4>
+                    </section>
+                    <section>
+                        <h4>Routeur<h4>
+                    </section>
+                    <section>
+                        <h4>Middleware</h3>
+                    </section>
+                    <section>
+                        <img src="gif/middleware.png"  />
                     </section>
                 </section>
                 <section>
@@ -663,14 +677,10 @@ job.on('exit', function() {
 JSON.parse('{title: "foo", chapter: "bar"}')
 </code></pre>
                     </section>
-                    <section>
-                        <h4>Controlleur<h4>
-                    </section>
-                    <section>
-                        <h4>Routeur<h4>
-                    </section>
                 </section>
-                
+                <section>
+                    <h3>Express</h3>
+                </section>
                 <section id="lesson3">
                     <section>
                         <h2>CSS</h2>
@@ -847,7 +857,7 @@ p {
                             <li class="fragment">No Global Event Listeners</li>
                             <li class="fragment">No Models</li>
                             <li class="fragment">No View Models</li>
-                        </ul>                   
+                        </ul>
                     </section>
                     <section>
                         <h4>Just Components</h4>
@@ -912,7 +922,7 @@ p {
         return {watched: false};
     },
     handleClick: function(event) {
-      this.setState({watched: !this.state.watched});  
+      this.setState({watched: !this.state.watched});
     },
     render: function() {
         var text = this.state.watched ? 'Watched' : 'Unwatched';
@@ -982,7 +992,7 @@ p {
                             <li class="fragment">Must be compiled (babel)</li>
                             <li class="fragment">Very usefull ...</li>
                             <li class="fragment">... but Optional</li>
-                        </ul>                           
+                        </ul>
                     </section>
                     <section>
                         <h4>Each data update</h4>
@@ -1041,7 +1051,7 @@ p {
                         <h4>State is mutable</h4>
                         <pre><code class="jsx">this.setState({ active: true});
 ...
-this.state.active 
+this.state.active
 </code></pre>
                     </section>
                 </section>
