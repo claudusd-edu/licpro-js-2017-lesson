@@ -5,7 +5,7 @@
         <title>Licence Pro Web 2015/2016</title>
         <meta name="author" content="Claude Dioudonnat" />
         <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
-        <link rel="stylesheet" href="reveal.js/css/theme/league.css">
+        <link rel="stylesheet" href="reveal.js/css/theme/white.css">
         <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
     </head>
     <body>
@@ -599,18 +599,18 @@ some_function('john', 'doe', tool.do);
                         <h3>Closure</h3>
                     </section>
                     <section>
-                        <pre><code class="javascript">function créerFonction() {
-  var nom = "Mozilla";
-  function afficheNom() {
-    alert(nom);
-  }
-  return afficheNom;
-};
+                        <pre><code class="javascript">function ajouteur(nombre) {
+    function ajoute(valeur) {
+        return valeur + nombre;
+    }
+
+    return ajoute;
+}
 </code></pre>
                     </section>
                     <section>
-                        <pre><code class="javascript">var maFonction = créerFonction();
-maFonction();
+                        <pre><code class="javascript">var ajoute10 = ajouteur(10);
+ajoute10(1); // retourne 11
 </code></pre>
                     </section>
                     <section>
